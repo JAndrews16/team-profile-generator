@@ -10,9 +10,72 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+function newEntry() {
+    return inquirer.prompt(
+        {
+            type: "input",
+            name: "newEntry",
+            message: "Would you like to add a new entry?"
+        }
+    )
+};
+
+function employeeInfo() {
+    return inquirer.prompt([
+    {
+        type: "input",
+        name: "name",
+        message: "Please enter the employee's name:"
+    },
+    {
+        type: "input",
+        name: "id",
+        message: "What is the employee ID?"
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "Enter in the employee's email:"
+    },
+    {
+        type: "input",
+        name: "title",
+        message: "Is this employee a Manager, Engineer or Intern?"
+    }
+])};
+
+function engineerInfo() {
+    return inquirer.prompt(
+    {
+        type: "input",
+        name: "github",
+        message: "What is their gitHub username?"
+    }
+)};
+
+function managerInfo() {
+    return inquirer.prompt(
+    {
+        type: "input",
+        name: "office",
+        message: "What is their office number?"
+    }
+)};
+
+function internInfo() {
+    return inquirer.prompt(
+    {
+        type: "input",
+        name: "school",
+        message: "What school did/does this intern attend?"
+    }
+)};
+
+//write 3 functions: engineer, intern and manager to inquire with specific info
+//do an async function await for the first prompts
+//then an if statement for whicheng, manager or intern function to run
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
