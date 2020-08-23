@@ -10,14 +10,14 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-// Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)
+const teamMembers = [];
+
 function newEntry() {
     return inquirer.prompt(
         {
             type: "input",
             name: "newEntry",
-            message: "Would you like to add a new entry?"
+            message: "Would you like to add a new entry? Enter Y or N."
         }
     )
 };
@@ -72,6 +72,42 @@ function internInfo() {
         message: "What school did/does this intern attend?"
     }
 )};
+
+async function init() {
+    const newEntry = await newEntry();
+
+    if(newEntry.newEntry === "N" || newEntry.newEntry === "n"){
+        fs.writeFile(outputPath, render(teamMembers), function(err){
+            if (err) {
+                throw err;
+            }
+        });
+    } else {
+        const newEmployee = await employeeInfo();
+
+        if(newEmployee.title === "Engineer" || newEmployee.title === "engineer"){
+            const newEngineer = await engineerInfo();
+            const engineer = new Engineer(newEmployee.name, newEmployee.id, newEmployee.email, newEngineer.github);
+            teamMembers.push(engineer);
+
+        } else if(newEmployee.title === "Intern" || newEmployee.title === "intern") {
+
+        } else if(newEmployee.title === "Manager" || newEmployee.title === "manager") {
+
+        } else {
+            alert("Please enter a Manger, Engineer, or Intern for the title.")
+            return;
+        }
+    }
+
+    // const questions = await questionsPrompt();
+
+    // writeToFile("README.md", questions);
+
+    // appendToFile(questions.questions);
+}
+
+init();
 
 //write 3 functions: engineer, intern and manager to inquire with specific info
 //do an async function await for the first prompts
