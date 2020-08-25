@@ -23,7 +23,7 @@ Use this application to generate web page filled with relevant info about your t
 
 The tests run on this application include the files in the test folder: Employee.test, Engineer.test, Intern.test, and Manager.test.
 
-## Photos & Demo
+## Photo & Demo
 
 ![Application Demo](./Assets/demo.gif)
 ![Team HTML](./Assets/teamhtml.PNG)
