@@ -5,12 +5,12 @@ class Employee {
         this.email = email;
     }
 
-    getId() {
-        return this.id;
-    }
-
     getName() {
         return this.name;
+    }
+
+    getId() {
+        return this.id;
     }
 
     getEmail() {
