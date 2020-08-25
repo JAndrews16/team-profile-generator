@@ -25,5 +25,5 @@ The tests run on this application include the files in the test folder: Employee
 
 ## Photos & Demo
 
-[![Application Demo](https://drive.google.com/file/d/1-8oIcBs6QFImlgdGZWRSKRY_ENVQDp3Y/view)](https://drive.google.com/file/d/1-8oIcBs6QFImlgdGZWRSKRY_ENVQDp3Y/view)
+![Application Demo](./Assets/demo.gif)
 ![Team HTML](./Assets/teamhtml.PNG)
